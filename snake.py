@@ -86,5 +86,3 @@ while True:
     
 
 wn.mainloop()
-
-
