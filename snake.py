@@ -1,7 +1,9 @@
 #Simple snake game in Python3 for beginners
 import turtle
 import time
+
 import random
+
 
 
 delay = 0.1
@@ -22,6 +24,7 @@ head.penup()
 head.goto(0,0)
 head.direction = "stop"
 
+
 # Snake Food
 food = turtle.Turtle()
 food.speed(0)
@@ -30,7 +33,16 @@ food.color("red")
 food.penup()
 food.goto(0,100)
 
+# Functions
+def go_up():
+    head.direction = "up"
 
+
+def go_down():
+    head.direction = "down"
+
+def go_left():
+    head.direction = "left"
 
 # Functions
 def go_up():
@@ -62,6 +74,35 @@ def move():
         x = head.xcor()
         head.setx(x + 20)
 
+def go_right():
+    head.direction = "right"
+
+def move():
+    if head.direction == "up":
+        y = head.ycor()
+        head.sety(y + 20)
+
+    if head.direction == "down":
+        y = head.ycor()
+        head.sety(y - 20)
+
+    if head.direction == "left":
+        x = head.xcor()
+        head.setx(x - 20)
+
+    if head.direction == "right":
+        x = head.xcor()
+        head.setx(x + 20)
+
+# Keyboard Bindings
+wn.listen()
+wn.onkeypress(go_up, "Up")
+wn.onkeypress(go_down, "Down")
+wn.onkeypress(go_left, "Left")
+wn.onkeypress(go_right, "Right")
+
+
+
 # Keyboard Bindings
 wn.listen()
 wn.onkeypress(go_up, "Up")
@@ -74,6 +115,7 @@ wn.onkeypress(go_right, "Right")
 while True:
     wn.update()
 
+
     if head.distance(food) < 20:
         # Move the food to random location
         x = random.randint(-275, 275)
@@ -82,7 +124,11 @@ while True:
 
     move()
 
+
+    move()
+
     time.sleep(delay)
     
 
 wn.mainloop()
+
