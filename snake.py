@@ -83,6 +83,6 @@ while True:
     move()
 
     time.sleep(delay)
-    
 
 wn.mainloop()
+
